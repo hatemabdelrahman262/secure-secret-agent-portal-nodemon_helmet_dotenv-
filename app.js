@@ -16,10 +16,13 @@ app.get("/praducts/:id/:key",(req,res,next)=>{
     console.log(id);
     console.log(item);
     if(key==process.env.KEY || Number(key)==123){
+       resolve("hello")
        res.send(`you got ${item} with id ${id} for a discount`);
        
+    }else{
+        return res.status(404).send("product not found");
     }
-    return next();})
+    })
     
 })
 console.log("hello")
