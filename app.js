@@ -15,7 +15,7 @@ app.get("/praducts/:id/:key",(req,res,next)=>{
     const item =object.product;
     console.log(id);
     console.log(item);
-    if(key==process.env.KEY || key==123){
+    if(key==process.env.KEY || Number(key)==123){
        res.send(`you got ${item} with id ${id} for a discount`);
        
     }
