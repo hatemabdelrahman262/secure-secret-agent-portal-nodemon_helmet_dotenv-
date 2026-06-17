@@ -8,14 +8,16 @@ const app =express();
 
 app.use(helmet())
 app.get("/praducts/:id/:key",(req,res,next)=>{
-    return new Promise((resolve)=>{const {id,key}=req.params
-    const object =products.find((p)=>{return p.id===Number(id)})
-    const item =object.product
-    console.log(id)
-    console.log(item)
+    return new Promise((resolve)=>{
+    const id=req.params.id;
+    const key=req.params.key;
+    const object =products.find((p)=>{return p.id===Number(id)});
+    const item =object.product;
+    console.log(id);
+    console.log(item);
     if(key==process.env.KEY || key==123){
        res.send(`you got ${item} with id ${id} for a discount`);
-       resolve("run complete")
+       
     }
     return next();})
     
