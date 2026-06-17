@@ -7,7 +7,7 @@ const PORT=process.env.PORT;
 const app =express();
 
 app.use(helmet())
-app.get("/products/:id/:key",(req,res,next)=>{
+app.get("/praducts/:id/:key",(req,res,next)=>{
     return new Promise((resolve)=>{const {id,key}=req.params
     const object =products.find((p)=>{return p.id===id})
     const item =object.product
