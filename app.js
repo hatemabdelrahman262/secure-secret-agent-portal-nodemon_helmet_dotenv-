@@ -7,6 +7,9 @@ const PORT=process.env.PORT;
 const app =express();
 
 app.use(helmet())
+app.get("/", (req, res) => {
+    res.send("Server is alive");
+})
 app.get("/praducts/:id/:key",(req,res,next)=>{
     return new Promise((resolve)=>{
     const id=req.params.id;
