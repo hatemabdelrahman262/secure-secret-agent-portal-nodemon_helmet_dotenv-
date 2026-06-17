@@ -12,6 +12,9 @@ app.get("/praducts/:id/:key",(req,res,next)=>{
     const id=req.params.id;
     const key=req.params.key;
     const object =products.find((p)=>{return p.id===Number(id)});
+    if (!object) {
+        return res.status(404).send("Product not found");
+    }
     const item =object.product;
     console.log(id);
     console.log(item);
